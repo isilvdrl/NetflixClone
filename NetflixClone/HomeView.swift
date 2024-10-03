@@ -8,10 +8,48 @@
 import SwiftUI
 
 struct HomeView: View {
+    var vm: HomeVM = HomeVM()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            
+            ScrollView(showsIndicators: false) {
+                //main Vstack
+                LazyVStack {
+                    ForEach(vm.allCategories, id: \.self) {category in
+                        VStack {
+                            HStack{
+                                
+                                Text(category)
+                                    .font(.title3)
+                                    .bold()
+                                Spacer()
+                            }
+                            
+                            ScrollView(.horizontal,showsIndicators: false){
+                                LazyHStack{
+                                    ForEach(vm.getMovie(forCat: category)){
+                                        movie in
+                                        StandardHomeMovie(movie: movie)
+                                            .frame(width: 150, height: 250)
+                                            .padding(.horizontal,20)
+                                    }
+                                }
+                            }
+                            
+                            
+                        }
+                    }
+                }
+            }
+            
+            }
+        .foregroundColor(.white)
+        }
     }
-}
+
 
 #Preview {
     HomeView()
