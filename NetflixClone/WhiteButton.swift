@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct WhiteButton: View {
+    var text: String
+    var imageName: String
+    var action: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Button(action: action ,
+               label: {
+                HStack {
+                    Spacer()
+                    Image(systemName: imageName)
+                        .font(.headline)
+                    Text(text)
+                        .bold()
+                        .font(.system(size: 16))
+                    Spacer()
+                }
+                .padding(.vertical, 6)
+                .foregroundColor(.black)
+                .background(Color.white)
+                
+                .cornerRadius(3.0)
+                }
+           )
     }
 }
 
 #Preview {
-    WhiteButton()
+    ZStack{
+        Color.black
+        WhiteButton(text: "Play", imageName: "play.fill", action: {})
+    }
+    
 }

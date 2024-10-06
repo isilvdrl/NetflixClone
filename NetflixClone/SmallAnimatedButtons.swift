@@ -8,11 +8,40 @@
 import SwiftUI
 
 struct SmallAnimatedButtons: View {
+    var text: String
+    var isOnImage: String
+    var isOffImage: String
+    var isOn: Bool
+    
+    var imageName : String {
+        if isOn {
+            return isOnImage
+        } else {
+            return isOffImage
+        }
+    }
+    var action: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+                action()
+                },
+               label:{
+                VStack{
+                    Image(systemName: imageName)
+                    Text(text)
+                        .font(.system(size: 14))
+                        .bold()
+                    }.foregroundColor(.white)
+                }
+            )
     }
 }
 
 #Preview {
-    SmallAnimatedButtons()
+    
+    ZStack {
+        Color.black
+        SmallAnimatedButtons(text: "My list", isOnImage: "checkmark", isOffImage: "plus", isOn: false ){print("Tapped")}
+    }
 }
