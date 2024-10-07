@@ -20,9 +20,13 @@ struct HomeView: View {
                 //main Vstack
                 LazyVStack {
                     
+                    TopRowButtons()
+                    
                     TopMoviesPreview(movie: exampleMovie1)
-                        .frame(width: screen.width)
-                        .padding(.top, -110)
+                            .frame(width: screen.width)
+                            .padding(.top, -110)
+                            .zIndex(-1)
+
                     
                     ForEach(vm.allCategories, id: \.self) {category in
                         VStack {
@@ -59,4 +63,39 @@ struct HomeView: View {
 
 #Preview {
     HomeView()
+}
+
+struct TopRowButtons: View {
+    var body: some View {
+        HStack{
+            Button(action: {}
+                   , label: {
+                Image("netflixLogo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:50)
+            })
+            
+            Spacer()
+            Button(action:{},
+                   label:{
+                Text("Tv Shows")
+            })
+            
+            Spacer()
+            Button(action: {},
+                   label: {
+                Text("Movies")
+            })
+            
+            Spacer()
+            Button(action: {},
+                   label: {
+                Text("My List")
+            })
+        }
+        .padding(.leading, 10)
+        .padding(.trailing,30)
+        .background(Color.black)
+    }
 }
