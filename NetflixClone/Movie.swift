@@ -15,8 +15,11 @@ struct Movie: Identifiable {
     var categories: [String]
     //movieDetailView
     var year: Int
-    var numberOfSeasons: Int?
     var rating: String
+    var promotionHeadline: String?
+    var numberOfSeasons: Int?
+    
+    var episode:[Episode]?
     
     var numberOfSeasonsDisplay: String{
         
@@ -29,5 +32,17 @@ struct Movie: Identifiable {
         }
         return ""
     }
+    //Personalizing
+    
+    var personalEpisodeInfo: [PersonalEpisodeInfo]?
+    var defaultPersonalEpisodeInfo : PersonalEpisodeInfo
+    
+}
 
+struct PersonalEpisodeInfo: Hashable, Equatable{
+    var episodeName: String
+    var seasone: Int
+    var number: Int
+    var description: String
+    
 }

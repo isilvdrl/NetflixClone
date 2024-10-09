@@ -11,6 +11,8 @@ struct WhiteButton: View {
     var text: String
     var imageName: String
     var action: () -> Void
+    var color: Color = Color.white
+    var fcolor: Color = .black
     
     var body: some View {
         
@@ -26,8 +28,8 @@ struct WhiteButton: View {
                     Spacer()
                 }
                 .padding(.vertical, 6)
-                .foregroundColor(.black)
-                .background(Color.white)
+                .foregroundColor(fcolor)
+                .background(color)
                 
                 .cornerRadius(3.0)
                 }

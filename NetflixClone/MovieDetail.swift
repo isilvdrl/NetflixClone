@@ -12,6 +12,8 @@ struct MovieDetail: View {
     var movie: Movie
     var screen = UIScreen.main.bounds
     
+    var personalEpisode: PersonalEpisodeInfo
+    
     var body: some View {
         ZStack{
             Color.black
@@ -33,10 +35,24 @@ struct MovieDetail: View {
                     
                     MovieDetailSubHeadline(movie: movie)
                     
-                    WhiteButton(text: "Play", imageName: "play.fill", action: {})
+                    Text(movie.promotionHeadline!)
+                        .font(.headline)
+                        .bold()
+                    
+                    WhiteButton(text: "Play", imageName: "play.fill", action: {},color: .red, fcolor: .white).padding(.horizontal, 10)
                         
-                    Text("Bölüm içeriği")
-                    Text("Small Animated Buttons")
+                    HStack {
+                        Text("S\(personalEpisode)")
+                    }
+                    
+                    HStack{
+                        
+                        SmallAnimatedButtons(text: "My List", isOnImage: "checkmark", isOffImage: "checkmark", isOn: true, action: {})
+                        SmallAnimatedButtons(text: "Rated", isOnImage: "hand.thumbsup.fill", isOffImage: "hand.thumbsup.fill", isOn: true, action: {})
+                        Spacer()
+                    }.padding(.leading,15)
+                        
+                        
                     
                     ScrollView(.horizontal,showsIndicators:false){
                        
@@ -70,9 +86,26 @@ struct MovieDetailSubHeadline: View {
             Image(systemName: "hand.thumbsup.fill")
                 .foregroundColor(.white)
             Text(String(movie.year))
-            Text(String(movie.rating))
+            
+            RatingView(movie: movie)
+            
             Text(movie.numberOfSeasonsDisplay)
             
         }.foregroundColor(.gray)
+    }
+}
+
+struct RatingView: View {
+    var movie:Movie
+    
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .foregroundColor(.gray)
+            Text(String(movie.rating))
+                .bold()
+        }.foregroundColor(.white)
+            .frame(width: 70,height: 20)
+            .font(.system(size: 15))
     }
 }
