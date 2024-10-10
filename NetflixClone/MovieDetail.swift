@@ -12,8 +12,6 @@ struct MovieDetail: View {
     var movie: Movie
     var screen = UIScreen.main.bounds
     
-    var personalEpisode: PersonalEpisodeInfo
-    
     var body: some View {
         ZStack{
             Color.black
@@ -41,19 +39,12 @@ struct MovieDetail: View {
                     
                     WhiteButton(text: "Play", imageName: "play.fill", action: {},color: .red, fcolor: .white).padding(.horizontal, 10)
                         
-                    HStack {
-                        Text("S\(personalEpisode)")
-                    }
+                    CurrentEpisodeInformation(movie: movie)
                     
-                    HStack{
+                    CastInfo(movie: movie)
+                  
+                    PersonalizationButtons()
                         
-                        SmallAnimatedButtons(text: "My List", isOnImage: "checkmark", isOffImage: "checkmark", isOn: true, action: {})
-                        SmallAnimatedButtons(text: "Rated", isOnImage: "hand.thumbsup.fill", isOffImage: "hand.thumbsup.fill", isOn: true, action: {})
-                        Spacer()
-                    }.padding(.leading,15)
-                        
-                        
-                    
                     ScrollView(.horizontal,showsIndicators:false){
                        
                         HStack{
@@ -107,5 +98,78 @@ struct RatingView: View {
         }.foregroundColor(.white)
             .frame(width: 70,height: 20)
             .font(.system(size: 15))
+    }
+}
+
+struct CurrentEpisodeInformation: View {
+    var movie: Movie
+    
+    var body: some View {
+        Group {
+            HStack {
+                Text(movie.episodeInfoDisplay)
+                Spacer()
+            }.bold()
+                .padding(.vertical,4)
+                .padding(.horizontal,15)
+            
+            HStack {
+                Text(movie.episodeDescriptionDisplay)
+                Spacer()
+            }.font(.subheadline)
+                .padding(.horizontal,15)
+        }
+    }
+}
+
+struct CastInfo: View {
+    var movie : Movie
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text("Cast:\(movie.cast)")
+                Spacer()
+            }
+            
+            HStack {
+                Text("Creators:\(movie.creator)")
+                Spacer()
+            }
+        }.padding(.horizontal,15)
+            .padding(.vertical,4)
+            .font(.system(size:15))
+            .foregroundColor(.gray)
+    }
+}
+
+struct PersonalizationButtons: View {
+    var body: some View {
+        HStack(spacing:60){
+            
+            SmallAnimatedButtons(
+                text: "My List",
+                isOnImage: "checkmark",
+                isOffImage: "plus",
+                isOn: true,
+                action: {})
+            
+            SmallAnimatedButtons(
+                text: "Rated",
+                isOnImage: "hand.thumbsup.fill",
+                isOffImage: "hand.thumbsup",
+                isOn: true,
+                action: {})
+            
+            SmallAnimatedButtons(
+                text: "Share",
+                isOnImage: "square.and.arrow.up",
+                isOffImage: "square.and.arrow.up",
+                isOn: false,
+                action: {})
+            
+            Spacer()
+        }.padding(.vertical,4)
+         .padding(.leading,30)
     }
 }
