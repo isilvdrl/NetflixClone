@@ -37,7 +37,13 @@ struct MovieDetail: View {
                         .font(.headline)
                         .bold()
                     
-                    WhiteButton(text: "Play", imageName: "play.fill", action: {},color: .red, fcolor: .white).padding(.horizontal, 10)
+                    WhiteButton(
+                        text: "Play",
+                        imageName: "play.fill",
+                        action: {},
+                        color: .red,
+                        fcolor: .white
+                    ).padding(.horizontal, 10)
                         
                     CurrentEpisodeInformation(movie: movie)
                     
