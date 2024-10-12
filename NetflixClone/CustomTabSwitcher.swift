@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct CustomTabSwitcher: View {
+    
     var tabs: [CustomTab]
+    @State private var activeTab: CustomTab = .episodes
+    
     func tabWidth(tab: CustomTab) -> CGFloat {
         let tabWidth = tab.rawValue.count * 10
         return CGFloat(tabWidth)
@@ -22,28 +25,39 @@ struct CustomTabSwitcher: View {
                         VStack {
                             Rectangle()
                                 .frame(width: tabWidth(tab: tab), height: 6)
-                                .foregroundColor(.red)
+                                .foregroundColor(activeTab == tab ? Color.red : Color.clear)
                             Button(
-                                action: {},
+                                action: {
+                                    activeTab = tab
+                                },
                                 label: {Text(tab.rawValue)
                                         .font(.system(size: 16))
                                         .bold()
+                                        .foregroundColor(activeTab == tab ? Color.white : Color.gray)
                                         }
-                                    
-                            )
+                                  )
                         }
                     }.padding(.leading, 15)
-                    
                 }
-            }.foregroundColor(.white)
-            
-            Text("Selected view").foregroundColor(.white)
-        }
-        
-        
+            }
 
+            switch activeTab {
+            case .episodes:
+               //EpisodesView()
+                Text("x")
+            case .trailers:
+                //TrailersView()
+                Text("y")
+            case .more:
+                //MoreLikeThisView()
+                Text("x")
+            }
+            
+            
+        }.foregroundColor(.white)
     }
 }
+
 enum CustomTab:String{
     case episodes = "EPISODES"
     case trailers = "TRAILERS & MORE"
