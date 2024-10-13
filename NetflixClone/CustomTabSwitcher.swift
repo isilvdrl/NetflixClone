@@ -11,6 +11,7 @@ struct CustomTabSwitcher: View {
     
     var tabs: [CustomTab]
     @State private var activeTab: CustomTab = .episodes
+    var movie : Movie
     
     func tabWidth(tab: CustomTab) -> CGFloat {
         let tabWidth = tab.rawValue.count * 10
@@ -49,8 +50,8 @@ struct CustomTabSwitcher: View {
                 //TrailersView()
                 Text("y")
             case .more:
-                //MoreLikeThisView()
-                Text("x")
+                MoreLikeThis(movies: movie.moreLikeThis)
+               
             }
             
             
@@ -67,6 +68,6 @@ enum CustomTab:String{
     ZStack{
         Color.black
             .edgesIgnoringSafeArea(.all)
-        CustomTabSwitcher(tabs: [.episodes,.trailers,.more])
+        CustomTabSwitcher(tabs: [.episodes,.trailers,.more] , movie: exampleMovie1)
     }
 }

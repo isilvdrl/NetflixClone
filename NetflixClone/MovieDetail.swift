@@ -51,20 +51,8 @@ struct MovieDetail: View {
                   
                     PersonalizationButtons()
                         
-                    ScrollView(.horizontal,showsIndicators:false){
-                       
-                        HStack{
-                            Spacer()
-                            Text("EPISODES")
-                            Spacer()
-                            Text("TRAILERS & MORE")
-                            Spacer()
-                            Text("MORE LIKE THIS")
-                        }.font(.headline)
-                            
-                    }
-                    Text("Sezon dropdown button")
-                    Text("Sezona ait bölümler")
+                    CustomTabSwitcher(tabs: [.episodes,.trailers,.more],movie: movie)
+                    
                 }
                 
             }.foregroundColor(.white)

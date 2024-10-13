@@ -8,17 +8,24 @@
 import SwiftUI
 
 struct MoreLikeThis: View {
-    var movie:Movie
+    var movies:[Movie]
+    
+    var columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible())
+        ]
     
     var body: some View {
         ZStack{
             Color.black
                 .edgesIgnoringSafeArea(.all)
             ScrollView(.vertical,showsIndicators: false) {
-                VStack{
-                    HStack{
-                       
+                LazyVGrid(columns: columns){
+                    ForEach(movies,id:\.id){ movie in
+                        StandardHomeMovie(movie: movie)
                     }
+                    
                 }
             }
         }
@@ -26,5 +33,5 @@ struct MoreLikeThis: View {
 }
 
 #Preview {
-    MoreLikeThis(movie: exampleMovie1)
+    MoreLikeThis(movies: exampleMovies)
 }

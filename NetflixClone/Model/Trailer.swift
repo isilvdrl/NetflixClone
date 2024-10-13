@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct Trailer: Identifiable, Hashable {
+    var id: String = UUID().uuidString
+    var name: String
+    var thumbnailImageUrl: URL
+    var videoUrl: URL
+   // let description: String
+   // let releaseDate: String
+   //let type: String
+}
