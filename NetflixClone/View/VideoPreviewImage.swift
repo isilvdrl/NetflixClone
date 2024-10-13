@@ -6,13 +6,27 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 struct VideoPreviewImage: View {
+    var imageURL: URL
+    var videoURL: URL
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            KFImage(imageURL)
+            Button(action: {},
+                   label:{
+                Image(systemName: "play.circle")
+                    .font(.system(size: 40))
+                    .foregroundColor(.white)
+            } )
+        }
     }
 }
 
 #Preview {
-    VideoPreviewImage()
+    VideoPreviewImage(imageURL: exampleTrailerImageURL, videoURL: exampleTrailerUrl)
 }
