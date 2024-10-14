@@ -10,6 +10,12 @@ import SwiftUI
 
 let exampleTrailerUrl = URL(string: "https://www.imdb.com/video/vi2007761177/?playlistId=tt0304141&ref_=tt_ov_vi")!
 let exampleTrailerImageURL = URL(string: "https://deadline.com/wp-content/uploads/2024/06/BRIDGERTON_208_Unit_00264R-e1717790655536.jpg?w=681&h=383&crop=1")!
+let trailer1 = Trailer(name: "of harry potter", thumbnailImageUrl: exampleTrailerImageURL, videoUrl: exampleTrailerUrl)
+let trailer2 = Trailer(name: " potter", thumbnailImageUrl: exampleTrailerImageURL, videoUrl: exampleTrailerUrl)
+let trailer3 = Trailer(name: " of harry ", thumbnailImageUrl: exampleTrailerImageURL, videoUrl: exampleTrailerUrl)
+
+let exampleTrailers = [trailer1,trailer2,trailer3]
+
 let exampleMovie1 = Movie(
     id: UUID().uuidString,
     name: "Harry Potter 1",

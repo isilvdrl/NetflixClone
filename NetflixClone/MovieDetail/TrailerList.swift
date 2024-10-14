@@ -7,12 +7,28 @@
 
 import SwiftUI
 
-struct TemplateList: View {
+struct TrailerList: View {
+    var trailers: [Trailer]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            ScrollView(.vertical) {
+                ForEach(trailers, id:\.id){ trailer in
+                    VStack(alignment: .leading){
+                        VideoPreviewImage(imageURL: trailer.thumbnailImageUrl, videoURL: trailer.videoUrl)
+                        Text(trailer.name)
+                            .font(.headline)
+                            .padding(.leading,150)
+                            .padding(.bottom,10)
+                    }.foregroundColor(.white)
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    TemplateList()
+    TrailerList(trailers: exampleTrailers)
 }

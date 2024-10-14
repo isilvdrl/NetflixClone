@@ -11,18 +11,22 @@ import KingfisherSwiftUI
 struct VideoPreviewImage: View {
     var imageURL: URL
     var videoURL: URL
+    @State var isPlaying: Bool = false
     
     var body: some View {
         ZStack{
             Color.black
                 .edgesIgnoringSafeArea(.all)
             KFImage(imageURL)
-            Button(action: {},
+            Button(action: {
+                isPlaying = true
+                },
                    label:{
                 Image(systemName: "play.circle")
                     .font(.system(size: 40))
                     .foregroundColor(.white)
-            } )
+            } ).sheet(isPresented: $isPlaying,
+                      content: {VideoView(url: videoURL)})
         }
     }
 }
