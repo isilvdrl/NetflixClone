@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TrailerList: View {
     var trailers: [Trailer]
+    var screen = UIScreen.main.bounds
     
     var body: some View {
         ZStack{
@@ -18,6 +19,7 @@ struct TrailerList: View {
                 ForEach(trailers, id:\.id){ trailer in
                     VStack(alignment: .leading){
                         VideoPreviewImage(imageURL: trailer.thumbnailImageUrl, videoURL: trailer.videoUrl)
+                            .frame(maxWidth: screen.width)
                         Text(trailer.name)
                             .font(.headline)
                             .padding(.leading,150)
