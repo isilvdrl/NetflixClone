@@ -13,6 +13,7 @@ struct Movie: Identifiable {
     var name: String
     var thumbnailURL : URL
     var categories: [String]
+    
     //movieDetailView
     var year: Int
     var rating: String
@@ -23,6 +24,7 @@ struct Movie: Identifiable {
     var moreLikeThis: [Movie]
     var episode:[Episode]?
     var trailers: [Trailer]
+    
     var numberOfSeasonsDisplay: String{
         
         if let num = numberOfSeasons{

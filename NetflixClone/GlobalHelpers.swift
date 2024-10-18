@@ -52,6 +52,34 @@ let exampleMovies : [Movie] = [exampleMovie1, exampleMovie2, exampleMovie3, exam
 let exampleEpisodeInfo = CurrentEpisodeInfo(episodeName: "Harry Potter and the Goblet of Fire", season: 2, number: 4, description: "In the quaint town of Maplewood, life flows in a predictable rhythm—until a mysterious stranger arrives one foggy morning. Clad in a weathered coat and carrying an old leather satchel, the newcomer captures the attention of the townsfolk, stirring both curiosity and suspicion.")
 let exampleEpisodeInfo2 = CurrentEpisodeInfo(episodeName: "Harry Potter", season: 1, number: 5, description: "In the quaint town of Maplewood, life flows in a predictable rhythm—until a mysterious stranger arrives one foggy morning. Clad in a weathered coat and carrying an old leather satchel, the newcomer captures the attention of the townsfolk, stirring both curiosity and suspicion.")
 
+let exampleVideoURL = URL(string:"https://www.imdb.com/video/vi2007761177/?playlistId=tt0304141&ref_=tt_ov_vi")
+let exampleImageURL = "https://deadline.com/wp-content/uploads/2024/06/BRIDGERTON_208_Unit_00264R-e1717790655536.jpg?w=681&h=383&crop=1"
+
+let episode1 = Episode(
+    name: "Harry Potter and the Goblet of Fire",
+    season: 2,
+    context: "In the quaint town of Maplewood, life flows in a predictable rhythm—until a mysterious stranger arrives one foggy morning. Clad in a weathered coat and carrying an old leather satchel, the newcomer captures the attention of the townsfolk, stirring both curiosity and suspicion.",
+    time:96,
+    thumbnailImageString: exampleImageURL,
+    episodeNumber: 1,
+    videoURL: exampleVideoURL!)
+let episode2 = Episode(
+    name: "Harry Potter and the Goblet of Fire",
+    season: 2,
+    context: "In the quaint town of Maplewood, life flows in a predictable rhythm—until a mysterious stranger arrives one foggy morning. Clad in a weathered coat and carrying an old leather satchel, the newcomer captures the attention of the townsfolk, stirring both curiosity and suspicion.",
+    time:96,
+    thumbnailImageString: exampleImageURL,
+    episodeNumber: 1,
+    videoURL: exampleVideoURL!)
+let episode3 = Episode(
+    name: "Harry Potter and the Goblet of Fire",
+    season: 2,
+    context: "In the quaint town of Maplewood, life flows in a predictable rhythm—until a mysterious stranger arrives one foggy morning. Clad in a weathered coat and carrying an old leather satchel, the newcomer captures the attention of the townsfolk, stirring both curiosity and suspicion.",
+    time:96,
+    thumbnailImageString: exampleImageURL,
+    episodeNumber: 1,
+    videoURL: exampleVideoURL!)
+
 
 extension LinearGradient {
     static let blackOpacityGradient = LinearGradient( gradient: Gradient(

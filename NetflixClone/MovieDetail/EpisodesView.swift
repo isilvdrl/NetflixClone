@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct EpisodesView: View {
+    var episodes: [Episode]
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color.black
+                .edgesIgnoringSafeArea(.all)
+            ScrollView {
+                
+                ForEach(episodes, id:\.id){ episode in
+                    VStack{
+                        HStack{
+                            Button(action: {}) {
+                                
+                            }
+                            Spacer()
+                            Button(action: {}, label: {
+                                Image(<#T##name: String##String#>, label: <#T##Text#>)
+                            })
+                        }
+                    }
+                }
+                
+            }
+        }
     }
 }
 
 #Preview {
-    EpisodesView()
+    EpisodesView(episodes: [episode1,episode2,episode3])
 }
