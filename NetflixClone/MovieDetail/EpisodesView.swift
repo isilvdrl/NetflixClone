@@ -14,22 +14,31 @@ struct EpisodesView: View {
         ZStack{
             Color.black
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            VStack {
+                Button(action:{},
+                       label: {
+                    Group {
+                        Text("Season 1")
+                    }
+                })
                 
-                ForEach(episodes, id:\.id){ episode in
-                    VStack{
-                        HStack{
-                            Button(action: {}) {
-                                
+                ScrollView {
+                    
+                    ForEach(episodes, id:\.id){ episode in
+                        VStack{
+                            HStack{
+                                Button(action: {}) {
+                                    
+                                }
+                                Spacer()
+                                Button(action: {}, label: {
+                                    
+                                })
                             }
-                            Spacer()
-                            Button(action: {}, label: {
-                                Image(<#T##name: String##String#>, label: <#T##Text#>)
-                            })
                         }
                     }
+                    
                 }
-                
             }
         }
     }
