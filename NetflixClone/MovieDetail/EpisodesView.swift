@@ -21,25 +21,55 @@ struct EpisodesView: View {
         ZStack{
             Color.black
                 .edgesIgnoringSafeArea(.all)
-            VStack {
-                Button(action:{
-                    showSeasonPicker = true
-                },
-                       label: {
-                    Group {
-                        Text("Season 1")
-                        Image(systemName: "chevron.down")
-                    }
-                })
+            VStack(spacing: 14) {
+                HStack {
+                    Button(action:{
+                        showSeasonPicker = true
+                    },
+                           label: {
+                        Group {
+                            Text("Season 1")
+                            Image(systemName: "chevron.down")
+                        }.font(.system(size: 16))
+                    })
+                    .foregroundColor(.white)
+                   
+                    Spacer()
+                    
+                }
                 
                 
                 ScrollView {
                     
                     ForEach(getEpisodes(forSeasons: selectedSeason)){ episode in
-                        Text("test")
-                       
+                        
+                        VStack(alignment: .leading){
+                            HStack{
+                                VideoPreviewImage(imageURL: episode.thumbnailImageURL, videoURL: episode.videoURL)
+                                    .frame(width: 120,height: 70)
+                                    
+                                VStack {
+                                    Text("\(episode.episodeNumber). \(episode.name)")
+                                        .font(.system(size: 16))
+                                    Text("\(episode.time)m")
+                                        .font(.system(size: 12))
+                                        .foregroundColor(.gray)
+                                }
+                                
+                                Spacer()
+                                Button(action: {}, label: {
+                                    Image(systemName: "arrow.down.to.line.alt")
+                                        .font(.system(size: 20))
+                                })
+                            }
+                            Text(episode.context)
+                                .font(.system(size:13))
+                                .lineLimit(3)
+                        }.padding(.bottom, 20)
+                        
                     }
                     .foregroundColor(.white)
+                    .padding(.horizontal,20)
                     
                 }
             }

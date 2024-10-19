@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 let exampleTrailerUrl = URL(string: "https://www.imdb.com/video/vi2007761177/?playlistId=tt0304141&ref_=tt_ov_vi")!
-let exampleTrailerImageURL = URL(string: "https://deadline.com/wp-content/uploads/2024/06/BRIDGERTON_208_Unit_00264R-e1717790655536.jpg?w=681&h=383&crop=1")!
+let exampleTrailerImageURL = URL(string: "https://ia.tmgrup.com.tr/fed1ad/0/0/0/0/525/394?u=http://i.tmgrup.com.tr/es/2018/05/05/tentene-rekor-fiyat-1525508552137.jpg")!
 let trailer1 = Trailer(name: "of harry potter", thumbnailImageUrl: exampleTrailerImageURL, videoUrl: exampleTrailerUrl)
 let trailer2 = Trailer(name: " potter", thumbnailImageUrl: exampleTrailerImageURL, videoUrl: exampleTrailerUrl)
 let trailer3 = Trailer(name: " of harry ", thumbnailImageUrl: exampleTrailerImageURL, videoUrl: exampleTrailerUrl)
@@ -53,7 +53,7 @@ let exampleEpisodeInfo = CurrentEpisodeInfo(episodeName: "Harry Potter and the G
 let exampleEpisodeInfo2 = CurrentEpisodeInfo(episodeName: "Harry Potter", season: 1, number: 5, description: "In the quaint town of Maplewood, life flows in a predictable rhythm—until a mysterious stranger arrives one foggy morning. Clad in a weathered coat and carrying an old leather satchel, the newcomer captures the attention of the townsfolk, stirring both curiosity and suspicion.")
 
 let exampleVideoURL = URL(string:"https://www.imdb.com/video/vi2007761177/?playlistId=tt0304141&ref_=tt_ov_vi")
-let exampleImageURL = "https://deadline.com/wp-content/uploads/2024/06/BRIDGERTON_208_Unit_00264R-e1717790655536.jpg?w=681&h=383&crop=1"
+let exampleImageURL = "https://ia.tmgrup.com.tr/fed1ad/0/0/0/0/525/394?u=http://i.tmgrup.com.tr/es/2018/05/05/tentene-rekor-fiyat-1525508552137.jpg"
 
 let episode1 = Episode(
     name: "Harry Potter and the Goblet of Fire",

@@ -28,6 +28,7 @@ struct VideoPreviewImage: View {
             } ).sheet(isPresented: $isPlaying,
                       content: {VideoView(url: videoURL)})
         }
+        
     }
 }
 
