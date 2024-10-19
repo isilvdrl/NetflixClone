@@ -57,7 +57,7 @@ let exampleImageURL = "https://deadline.com/wp-content/uploads/2024/06/BRIDGERTO
 
 let episode1 = Episode(
     name: "Harry Potter and the Goblet of Fire",
-    season: 2,
+    season: 1,
     context: "In the quaint town of Maplewood, life flows in a predictable rhythm—until a mysterious stranger arrives one foggy morning. Clad in a weathered coat and carrying an old leather satchel, the newcomer captures the attention of the townsfolk, stirring both curiosity and suspicion.",
     time:96,
     thumbnailImageString: exampleImageURL,
@@ -80,6 +80,7 @@ let episode3 = Episode(
     episodeNumber: 1,
     videoURL: exampleVideoURL!)
 
+let allExampleEpisodes = [episode1, episode2, episode3]
 
 extension LinearGradient {
     static let blackOpacityGradient = LinearGradient( gradient: Gradient(

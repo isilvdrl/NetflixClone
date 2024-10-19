@@ -9,34 +9,37 @@ import SwiftUI
 
 struct EpisodesView: View {
     var episodes: [Episode]
+    @Binding var showSeasonPicker: Bool
+    @Binding var selectedSeason: Int
+    
+    func getEpisodes(forSeasons season:Int) -> [Episode]{
+        return episodes.filter({$0.season == season})
+    }
+    
     
     var body: some View {
         ZStack{
             Color.black
                 .edgesIgnoringSafeArea(.all)
             VStack {
-                Button(action:{},
+                Button(action:{
+                    showSeasonPicker = true
+                },
                        label: {
                     Group {
                         Text("Season 1")
+                        Image(systemName: "chevron.down")
                     }
                 })
                 
+                
                 ScrollView {
                     
-                    ForEach(episodes, id:\.id){ episode in
-                        VStack{
-                            HStack{
-                                Button(action: {}) {
-                                    
-                                }
-                                Spacer()
-                                Button(action: {}, label: {
-                                    
-                                })
-                            }
-                        }
+                    ForEach(getEpisodes(forSeasons: selectedSeason)){ episode in
+                        Text("test")
+                       
                     }
+                    .foregroundColor(.white)
                     
                 }
             }
@@ -45,5 +48,5 @@ struct EpisodesView: View {
 }
 
 #Preview {
-    EpisodesView(episodes: [episode1,episode2,episode3])
+    EpisodesView(episodes: allExampleEpisodes, showSeasonPicker: .constant(false), selectedSeason: .constant(1))
 }
