@@ -18,6 +18,8 @@ struct VideoPreviewImage: View {
             Color.black
                 .edgesIgnoringSafeArea(.all)
             KFImage(imageURL)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
             Button(action: {
                 isPlaying = true
                 },
