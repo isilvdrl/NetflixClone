@@ -22,15 +22,18 @@ struct Movie: Identifiable {
     var cast: String
     var creator: String
     var moreLikeThis: [Movie]
-    var episode:[Episode]?
+    var episodes:[Episode]?
     var trailers: [Trailer]
     
     var numberOfSeasonsDisplay: String{
         
         if let num = numberOfSeasons{
-            if num == 1{
+            if num == 0{
+                return ""
+            }else if num == 1{
                 return "1 Season"
-            }else{
+            }
+            else{
                 return "\(num) Seasons"
             }
         }
@@ -42,7 +45,9 @@ struct Movie: Identifiable {
     var defaultEpisodeInfo : CurrentEpisodeInfo
     
     var episodeInfoDisplay: String{
-        
+        if numberOfSeasons == 0{
+            return ""
+        }
         if let current = currentEpisode{
             return "S\(current.episodeName):E\(current.season) \(current.number)"
         }else{

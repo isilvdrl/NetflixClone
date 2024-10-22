@@ -27,3 +27,4 @@ struct VideoView: View {
 #Preview {
     VideoView(url: exampleTrailerUrl)
 }
+

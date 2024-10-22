@@ -54,17 +54,49 @@ struct MovieDetail: View {
                   
                     PersonalizationButtons()
                         
-                    CustomTabSwitcher(tabs: [.episodes,.trailers,.more],movie: movie)
+                    CustomTabSwitcher(tabs: [.episodes,.trailers,.more],movie: movie, showSeasonPicker: $showSeasonPicker, selectedSeason: $selectedSeason)
                     
                 }
                 
             }.foregroundColor(.white)
+            
+            if showSeasonPicker{
+                Color.black.opacity(0.9)
+                VStack(spacing: 40){
+                    Spacer()
+                    
+                    ForEach(0..<(movie.numberOfSeasons ?? 0)){ season in
+                        Button(action: {
+                            self.selectedSeason = season + 1
+                            self.showSeasonPicker = false
+                        },
+                               label: {
+                                Text("Season \(season + 1)")
+                                .foregroundColor(season + 1 == selectedSeason ? .white : .gray)
+                                .font(season + 1 == selectedSeason ? .title : .title2)
+                        })
+                    }
+                    
+                    Spacer()
+                    Button(action: {
+                        showSeasonPicker = false
+                    },
+                           label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 40))
+                    })
+                }.foregroundColor(.white)
+                    .font(.system(size: 20))
+                    .bold()
+                
+                
+            }
         }
     }
 }
 
 #Preview {
-    MovieDetail(movie: exampleMovie1)
+    MovieDetail(movie: exampleMovie8)
 }
 
 struct MovieDetailSubHeadline: View {

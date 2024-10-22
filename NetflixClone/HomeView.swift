@@ -96,6 +96,6 @@ struct TopRowButtons: View {
         }
         .padding(.leading, 10)
         .padding(.trailing,30)
-        .background(Color.black)
+        //.background(Color.black)
     }
 }

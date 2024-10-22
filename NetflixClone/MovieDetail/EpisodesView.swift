@@ -28,7 +28,7 @@ struct EpisodesView: View {
                     },
                            label: {
                         Group {
-                            Text("Season 1")
+                            Text("Season \(selectedSeason)")
                             Image(systemName: "chevron.down")
                         }.font(.system(size: 16))
                     })

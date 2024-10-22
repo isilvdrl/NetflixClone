@@ -35,5 +35,5 @@ struct VideoPreviewImage: View {
 }
 
 #Preview {
-    VideoPreviewImage(imageURL: exampleTrailerImageURL, videoURL: exampleTrailerUrl)
+    VideoPreviewImage(imageURL: exampleTrailerImageURL1, videoURL: exampleTrailerUrl)
 }
